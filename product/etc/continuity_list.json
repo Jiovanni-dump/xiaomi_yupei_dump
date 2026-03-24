@@ -1,0 +1,63 @@
+{
+    "id": 1239296,
+    "app_continuity_whitelist": [
+
+    ],
+    "app_restart_blacklist": [
+
+    ],
+    "app_continuity_blacklist": [
+
+    ],
+    "app_activity_relaunch_blacklist": [
+    "com.mubu.app/com.mubu.setting.PayWebActivity",
+    "com.xingin.xhs/com.xingin.matrix.nns.detail.NnsDetailActivity",
+    "com.yek.android.kfc.activitys/com.yumc.android.scan.zxing.CaptureActivity,j",
+    "com.yek.android.kfc.activitys/com.yumc.android.scan.zxing.CaptureActivity,q",
+    "com.jdd.motorfans/.modules.detail.video.SmallVideoDetailActivity,q",
+    "com.dianping.v1/.NovaMainActivity,j",
+    "com.dianping.v1/.NovaMainActivity,p",
+    "com.taobao.live/.scan.CaptureActivity,j",
+    "com.taobao.live/.scan.CaptureActivity,q",
+    "com.nice.main/.shop.detail.ShopSkuDetailActivity_,j",
+    "com.nice.main/.shop.detail.ShopSkuDetailActivity_,q",
+    "com.duorong.smarttool/com.duorong.module_main.ui.main.HomeActivity,j",
+    "com.duorong.smarttool/com.duorong.module_main.ui.main.HomeActivity,p",
+    "com.lechuan.mdwz/com.lechuan.midunovel.refactor.reader.refactor.ui.reader.ReaderActivity,q",
+    "com.coolapk.market/.view.photo.PhotoViewActivity",
+    "com.cctv.yangshipin.app.androidp/com.tencent.videolite.android.business.webview.interact.H5InteractActivity",
+    "com.yiyou.ga/com.tt.channel.biz.channelBaseFunction.ChannelActivity,p",
+    "com.tencent.qqpimsecure/com.tencent.server.fore.StandardActivity",
+    "com.koudai.weidian.buyer/com.vdian.android.wdb.qrcode.activity.WdbQrCodeActivity",
+    "com.nice.main/.activities.MainActivity_",
+    "tech.echoing.kuril/.MainActivity",
+    "com.lofter.android/.business.PostDetailPage.view.PostDetailActivity,q",
+    "com.lofter.android/.business.PostDetailPage.view.PostDetailActivity,p",
+    "com.lofter.android/.business.PostDetailPage.view.PostDetailActivity,j",
+    "com.fenbi.android.servant/com.fenbi.android.module.ocr.base.CaptureActivity",
+    "com.qq.reader/com.google.zxing.client.android.CaptureActivity"
+    ],
+    "app_activity_block_blacklist": [
+    "com.dianping.v1/.NovaMainActivity,q"
+    ],
+    "app_activity_notrelaunch_blacklist": [
+    "com.mba.logic/.module.question_v2.ui.QuestionBankActivity",
+    "com.dz.game.jysk.mi/com.game.main.GameMain",
+    "com.cnspeedtest.globalspeed/com.ruili.android.taierspeed.main.MainActivity",
+    "android.server.wm.app/.PortraitOrientationActivity",
+    "com.tencent.mm/.plugin.ringtone.ui.RingtoneSelectUI",
+    "com.tencent.mm/.feature.appmsg.ui.RecordDetailUI",
+    "com.tencent.mm/.plugin.textstatus.ui.TextStatusEditActivity",
+    "com.tencent.mm/.ui.mvvm.MvvmContactListUI",
+    "com.huyaan.hman/com.fenghuajueli.module_host.MainActivity"
+    ],
+    "app_activity_accessibility_notrelaunch_blacklist": [
+
+    ],
+    "app_activity_restart_blacklist": [
+
+    ],
+    "app_relaunch_blacklist": [
+
+    ]
+}
