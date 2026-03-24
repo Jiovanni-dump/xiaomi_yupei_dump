@@ -1,0 +1,21 @@
+{
+    "version": "2.0",
+    "VppWhiteListAdaptCE": [
+        "com.qiyi.video",
+        "com.miui.video",
+        "com.tencent.qqlive",
+        "com.youku.phone",
+        "tv.danmaku.bili",
+        "tv.danmaku.bilibilihd",
+        "com.qiyi.video.pad",
+        "com.baidu.netdisk",
+        "com.mxtech.videoplayer.ad"
+    ],
+    "VppWhiteListAIS_Videocall": [
+        "com.tencent.mm",
+        "com.alibaba.android.rimet"
+    ],
+    "EncoderFeature": {
+        "WhiteListROIEncode" : ["com.tencent.mm"]
+    }
+}

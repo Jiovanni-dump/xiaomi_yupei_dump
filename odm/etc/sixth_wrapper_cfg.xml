@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<sixth_wrapper_config>
+    <config_element name="sipa_ctl_prefix" spkr_0_ctl="SpkrLeft T" spkr_1_ctl="SpkrRight T" 
+		spkr_2_ctl="SpkrLeft B" spkr_3_ctl="SpkrRight B" spkr_4_ctl="Spkr_ch_4" spkr_5_ctl="Spkr_ch_5" 
+		spkr_6_ctl="Spkr_ch_6" spkr_7_ctl="Spkr_ch_7" description="sipa ctrl name prefix"/>
+    <config_element name="hpf" enable="0" frq1="109" frq2="53" chiptype1="9" chiptype2="10"
+        description="set hpf feq"/>
+    <config_element name="vdd" enable="1" opt="1" battery_node="/sys/class/power_supply/battery/voltage_now"
+        vdd_step="10000" description="read vdd and set ad_hoc gain, vdd_step(mv)">
+        <value_map threshold="4300000" ratio_value ="100,100,100,100" sthresh ="4500000,4500000,4500000,4500000" description="ad_hoc ratio"/>
+		<value_map threshold="4150000" ratio_value ="100,100,100,100" sthresh ="4500000,4500000,4500000,4500000" description="ad_hoc ratio"/>
+		<value_map threshold="4000000" ratio_value ="100,100,100,100" sthresh ="4200000,4200000,4200000,4200000" description="ad_hoc ratio"/>
+        <value_map threshold="3900000" ratio_value ="90,90,90,90" sthresh ="4060000,4060000,4060000,4060000" description="ad_hoc ratio"/>
+        <value_map threshold="3800000" ratio_value ="85,85,85,85" sthresh ="3920000,3920000,3920000,3920000" description="ad_hoc ratio"/>
+        <value_map threshold="3650000" ratio_value ="80,80,80,80" sthresh ="3750000,3750000,3750000,3750000" description="ad_hoc ratio"/>
+        <value_map threshold="3500000" ratio_value ="75,75,75,75" sthresh ="3550000,3550000,3550000,3550000" description="ad_hoc ratio"/>
+		<value_map threshold="3300000" ratio_value ="70,70,70,70" sthresh ="3430000,3430000,3430000,3430000" description="ad_hoc ratio"/>
+		<value_map threshold="3000000" ratio_value ="65,65,65,65" sthresh ="3340000,3340000,3340000,3340000" description="ad_hoc ratio"/>
+		<value_map threshold="2800000" ratio_value ="55,55,55,55" sthresh ="3040000,3040000,3040000,3040000" description="ad_hoc ratio"/>
+		<value_map threshold="2000000" ratio_value ="45,45,45,45" sthresh ="2500000,2500000,2500000,2500000" description="ad_hoc ratio"/>
+        <value_map threshold="0" ratio_value ="40,40,40,40" sthresh ="2500000,2500000,2500000,2500000" description="ad_hoc ratio"/>
+    </config_element>
+    <config_element name="channel" num="4" description="set ch num"/>
+    <config_element name="timer_cfg" enable="1" description="enable timer"/>
+    <config_element name="lp_protect_cfg" enable="0" description="turn on/off interval set lp value"/>
+    <config_element name="algo_val_set" enable="1" description="set algo param, eg, r0, f0"/>
+    <config_element name="lp_set" enable="0" description="Is init lp value"/>
+</sixth_wrapper_config>

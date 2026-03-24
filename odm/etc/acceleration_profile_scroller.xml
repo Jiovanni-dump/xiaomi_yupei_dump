@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<acceleration_profiles>
+
+    <screen_dimensions>
+        <screen_x_px>3200</screen_x_px>
+        <screen_y_px>2136</screen_y_px>
+        <screen_x_mm>238.776</screen_x_mm>
+        <screen_y_mm>163.2305</screen_y_mm>
+    </screen_dimensions>
+
+    <profile>
+        <accel_constant_gain_root>750.0</accel_constant_gain_root>
+        <gain_constant>0.625623151823247</gain_constant>
+        <gain_linear>0.0139933416225358</gain_linear>
+        <gain_parabolic>4.70780450942224e-06</gain_parabolic>
+        <gain_cubic>-5.23689359205052e-08</gain_cubic>
+        <gain_quadratic>4.01042949074350e-11</gain_quadratic>
+    </profile>
+
+</acceleration_profiles>

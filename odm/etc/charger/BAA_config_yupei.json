@@ -1,0 +1,541 @@
+{
+    "strategy": {
+        "supported_strategy_index": [
+            1,3
+        ],
+        "smart_fv": {
+            "path": "/sys/class/xm_power/charger/smart_charge/smart_fv",
+            "decrease_mv_max": 50
+        }
+    },
+
+    "LowSoh-FvDown": {
+        "enable_by_default": true,
+        "use_smart_fv": true,
+        "sysfs_node": {
+            "cyclecount": {
+                "path": "/sys/class/power_supply/battery/cycle_count",
+                "range_min": 200,
+                "range_max": 800
+            },
+            "soh": {
+                "path": "/sys/class/qcom-battery/soh",
+                "threshold": 85
+            },
+            "smart_batt": {
+                "path": "/sys/class/qcom-battery/smart_batt",
+                "value": 40
+            },
+            "smart_fv": {
+                "path": "/sys/class/xm_power/charger/smart_charge/smart_fv",
+                "value": 40
+            }
+        }
+    },
+
+    "BasedOnCC-VolDown": {
+        "enable_by_default": true,
+        "support_charger_mode": true,
+        "send_data_with_ioctl": true,
+        "write_batt_spec_to_file": {
+            "enable": true,
+            "file_path": "/data/vendor/batteryantiaging/BAA_battSpec.csv"
+        },
+        "sysfs_node": {
+            "cyclecount": {
+                "path": "/sys/class/power_supply/battery/cycle_count"
+            },
+            "temp":{
+                "path": "/sys/class/power_supply/battery/temp"
+            },
+            "fcc_down": {
+                "path": "/sys/class/qcom-battery/fv_down",
+                "value": 0
+            },
+            "fg_vendor": {
+                "path": "/sys/class/xm_power/fg_master/pack_vendor"
+            },
+            "smart_charge_cdev": {
+                "path": "/dev/smart_charge_cdev"
+            }
+        },
+        "vendor_id_3": {
+            "batt_type_get_by_property":{
+                "1": {"type":"sysfsnode", "/sys/class/xm_power/fg_master/device_name":["QBGdev"], "batt_type_name":"CN-battery-nvt"}
+            },
+            "CN-battery-nvt":{
+                "cyclecount_index_map":[
+                    {"idx": 1, "min": 1, "max": 100},
+                    {"idx": 2, "min": 101, "max": 300},
+                    {"idx": 3, "min": 301, "max": 1000},
+                    {"idx": 4, "min": 1000, "max": 2147483647}
+                ],
+                "cyclecount": [
+                    {
+                        "cyclecount_index": 1,
+                        "jeita-term-para": {
+                            "FFC": [
+                                { "idx":0, "temp-min": 15, "temp-max": 35, "vterm":4530, "iterm":2260},
+                                { "idx":1, "temp-min": 35, "temp-max": 48, "vterm":4530, "iterm":3390}
+                            ],
+                            "normal": [
+                                { "idx": 0, "temp-min": -65535, "temp-max": -9, "vterm":4500, "iterm":565},
+                                { "idx": 1, "temp-min": -9, "temp-max": 0, "vterm":4500, "iterm":565},
+                                { "idx": 2, "temp-min": 0, "temp-max": 5, "vterm":4500, "iterm":565},
+                                { "idx": 3, "temp-min": 5, "temp-max": 10, "vterm":4500, "iterm":565},
+                                { "idx": 4, "temp-min": 10, "temp-max": 15, "vterm":4500, "iterm":565},
+                                { "idx": 5, "temp-min": 15, "temp-max": 35, "vterm":4480, "iterm":565},
+                                { "idx": 6, "temp-min": 35, "temp-max": 48, "vterm":4480, "iterm":565},
+                                { "idx": 7, "temp-min": 48, "temp-max": 60, "vterm":4060, "iterm":565},
+                                { "idx": 8, "temp-min": 60, "temp-max": 65535, "vterm":4060, "iterm":565}
+                            ]
+                        },
+                        "wire": {
+                            "FFC":[
+                                {
+                                    "temp": {"min": 15, "max": 35, "idx": 3},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":6000},
+                                        {"mV":4330, "mA_h":6000, "mA_l":5400},
+                                        {"mV":4523, "mA_h":5400, "mA_l":2260}
+                                    ]
+                                },
+                                {
+                                    "temp": {"min": 35, "max": 48, "idx": 4},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":6000},
+                                        {"mV":4330, "mA_h":6000, "mA_l":5400},
+                                        {"mV":4523, "mA_h":5400, "mA_l":3390}
+                                    ]
+                                }
+                            ],
+                            "normal":[
+                                {
+                                    "temp": {"min": 15, "max": 35, "idx": 3},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":5400},
+                                        {"mV":4473, "mA_h":5400, "mA_l":565}
+                                    ]
+                                },
+                                {
+                                    "temp": {"min": 35, "max": 48, "idx": 4},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":5400},
+                                        {"mV":4473, "mA_h":5400, "mA_l":565}
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "cyclecount_index": 2,
+                        "jeita-term-para": {
+                            "FFC": [
+                                { "idx":0, "temp-min": 15, "temp-max": 35, "vterm":4510, "iterm":2260},
+                                { "idx":1, "temp-min": 35, "temp-max": 48, "vterm":4510, "iterm":3390}
+                            ],
+                            "normal": [
+                                { "idx": 0, "temp-min": -65535, "temp-max": -9, "vterm":4500, "iterm":565},
+                                { "idx": 1, "temp-min": -9, "temp-max": 0, "vterm":4500, "iterm":565},
+                                { "idx": 2, "temp-min": 0, "temp-max": 5, "vterm":4500, "iterm":565},
+                                { "idx": 3, "temp-min": 5, "temp-max": 10, "vterm":4500, "iterm":565},
+                                { "idx": 4, "temp-min": 10, "temp-max": 15, "vterm":4500, "iterm":565},
+                                { "idx": 5, "temp-min": 15, "temp-max": 35, "vterm":4470, "iterm":565},
+                                { "idx": 6, "temp-min": 35, "temp-max": 48, "vterm":4470, "iterm":565},
+                                { "idx": 7, "temp-min": 48, "temp-max": 60, "vterm":4060, "iterm":565},
+                                { "idx": 8, "temp-min": 60, "temp-max": 65535, "vterm":4060, "iterm":565}
+                            ]
+                        },
+                        "wire": {
+                            "FFC":[
+                                {
+                                    "temp": {"min": 15, "max": 35, "idx": 3},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":6000},
+                                        {"mV":4330, "mA_h":6000, "mA_l":5400},
+                                        {"mV":4503, "mA_h":5400, "mA_l":2260}
+                                    ]
+                                },
+                                {
+                                    "temp": {"min": 35, "max": 48, "idx": 4},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":6000},
+                                        {"mV":4330, "mA_h":6000, "mA_l":5400},
+                                        {"mV":4503, "mA_h":5400, "mA_l":3390}
+                                    ]
+                                }
+                            ],
+                            "normal":[
+                                {
+                                    "temp": {"min": 15, "max": 35, "idx": 3},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":5400},
+                                        {"mV":4463, "mA_h":5400, "mA_l":565}
+                                    ]
+                                },
+                                {
+                                    "temp": {"min": 35, "max": 48, "idx": 4},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":5400},
+                                        {"mV":4463, "mA_h":5400, "mA_l":565}
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "cyclecount_index": 3,
+                        "jeita-term-para": {
+                            "FFC": [
+                                { "idx":0, "temp-min": 15, "temp-max": 35, "vterm":4490, "iterm":2260},
+                                { "idx":1, "temp-min": 35, "temp-max": 48, "vterm":4490, "iterm":3390}
+                            ],
+                            "normal": [
+                                { "idx": 0, "temp-min": -65535, "temp-max": -9, "vterm":4500, "iterm":565},
+                                { "idx": 1, "temp-min": -9, "temp-max": 0, "vterm":4500, "iterm":565},
+                                { "idx": 2, "temp-min": 0, "temp-max": 5, "vterm":4500, "iterm":565},
+                                { "idx": 3, "temp-min": 5, "temp-max": 10, "vterm":4500, "iterm":565},
+                                { "idx": 4, "temp-min": 10, "temp-max": 15, "vterm":4500, "iterm":565},
+                                { "idx": 5, "temp-min": 15, "temp-max": 35, "vterm":4460, "iterm":565},
+                                { "idx": 6, "temp-min": 35, "temp-max": 48, "vterm":4460, "iterm":565},
+                                { "idx": 7, "temp-min": 48, "temp-max": 60, "vterm":4060, "iterm":565},
+                                { "idx": 8, "temp-min": 60, "temp-max": 65535, "vterm":4060, "iterm":565}
+                            ]
+                        },
+                        "wire": {
+                            "FFC":[
+                                {
+                                    "temp": {"min": 15, "max": 35, "idx": 3},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":6000},
+                                        {"mV":4330, "mA_h":6000, "mA_l":5400},
+                                        {"mV":4483, "mA_h":5400, "mA_l":2260}
+                                    ]
+                                },
+                                {
+                                    "temp": {"min": 35, "max": 48, "idx": 4},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":6000},
+                                        {"mV":4330, "mA_h":6000, "mA_l":5400},
+                                        {"mV":4483, "mA_h":5400, "mA_l":3390}
+                                    ]
+                                }
+                            ],
+                            "normal":[
+                                {
+                                    "temp": {"min": 15, "max": 35, "idx": 3},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":5400},
+                                        {"mV":4453, "mA_h":5400, "mA_l":565}
+                                    ]
+                                },
+                                {
+                                    "temp": {"min": 35, "max": 48, "idx": 4},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":5400},
+                                        {"mV":4453, "mA_h":5400, "mA_l":565}
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "cyclecount_index": 4,
+                        "jeita-term-para": {
+                            "FFC": [
+                                { "idx":0, "temp-min": 15, "temp-max": 35, "vterm":4480, "iterm":2260},
+                                { "idx":1, "temp-min": 35, "temp-max": 48, "vterm":4480, "iterm":3390}
+                            ],
+                            "normal": [
+                                { "idx": 0, "temp-min": -65535, "temp-max": -9, "vterm":4500, "iterm":565},
+                                { "idx": 1, "temp-min": -9, "temp-max": 0, "vterm":4500, "iterm":565},
+                                { "idx": 2, "temp-min": 0, "temp-max": 5, "vterm":4500, "iterm":565},
+                                { "idx": 3, "temp-min": 5, "temp-max": 10, "vterm":4500, "iterm":565},
+                                { "idx": 4, "temp-min": 10, "temp-max": 15, "vterm":4500, "iterm":565},
+                                { "idx": 5, "temp-min": 15, "temp-max": 35, "vterm":4450, "iterm":565},
+                                { "idx": 6, "temp-min": 35, "temp-max": 48, "vterm":4450, "iterm":565},
+                                { "idx": 7, "temp-min": 48, "temp-max": 60, "vterm":4060, "iterm":565},
+                                { "idx": 8, "temp-min": 60, "temp-max": 65535, "vterm":4060, "iterm":565}
+                            ]
+                        },
+                        "wire": {
+                            "FFC":[
+                                {
+                                    "temp": {"min": 15, "max": 35, "idx": 3},
+                                    "step": [
+                                        {"mV":4120, "mA_h":6300, "mA_l":4800},
+                                        {"mV":4320, "mA_h":4800, "mA_l":4320},
+                                        {"mV":4473, "mA_h":4320, "mA_l":2260}
+                                    ]
+                                },
+                                {
+                                    "temp": {"min": 35, "max": 48, "idx": 4},
+                                    "step": [
+                                        {"mV":4120, "mA_h":6300, "mA_l":4800},
+                                        {"mV":4320, "mA_h":4800, "mA_l":4320},
+                                        {"mV":4473, "mA_h":4320, "mA_l":3390}
+                                    ]
+                                }
+                            ],
+                            "normal":[
+                                {
+                                    "temp": {"min": 15, "max": 35, "idx": 3},
+                                    "step": [
+                                        {"mV":4120, "mA_h":6300, "mA_l":4320},
+                                        {"mV":4443, "mA_h":4320, "mA_l":565}
+                                    ]
+                                },
+                                {
+                                    "temp": {"min": 35, "max": 48, "idx": 4},
+                                    "step": [
+                                        {"mV":4120, "mA_h":6300, "mA_l":4320},
+                                        {"mV":4443, "mA_h":4320, "mA_l":565}
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "vendor_id_2": {
+            "batt_type_get_by_property":{
+                "1": {"type":"sysfsnode", "/sys/class/xm_power/fg_master/device_name":["QBGdev"], "batt_type_name":"CN-battery-swd"}
+            },
+            "CN-battery-swd":{
+                "cyclecount_index_map":[
+                    {"idx": 1, "min": 1, "max": 100},
+                    {"idx": 2, "min": 101, "max": 300},
+                    {"idx": 3, "min": 301, "max": 1000},
+                    {"idx": 4, "min": 1000, "max": 2147483647}
+                ],
+                "cyclecount": [
+                    {
+                        "cyclecount_index": 1,
+                        "jeita-term-para": {
+                            "FFC": [
+                                { "idx":0, "temp-min": 15, "temp-max": 35, "vterm":4530, "iterm":2200},
+                                { "idx":1, "temp-min": 35, "temp-max": 48, "vterm":4530, "iterm":2825}
+                            ],
+                            "normal": [
+                                { "idx": 0, "temp-min": -65535, "temp-max": -9, "vterm":4500, "iterm":565},
+                                { "idx": 1, "temp-min": -9, "temp-max": 0, "vterm":4500, "iterm":565},
+                                { "idx": 2, "temp-min": 0, "temp-max": 5, "vterm":4500, "iterm":565},
+                                { "idx": 3, "temp-min": 5, "temp-max": 10, "vterm":4500, "iterm":565},
+                                { "idx": 4, "temp-min": 10, "temp-max": 15, "vterm":4500, "iterm":565},
+                                { "idx": 5, "temp-min": 15, "temp-max": 35, "vterm":4480, "iterm":565},
+                                { "idx": 6, "temp-min": 35, "temp-max": 48, "vterm":4480, "iterm":565},
+                                { "idx": 7, "temp-min": 48, "temp-max": 60, "vterm":4060, "iterm":565},
+                                { "idx": 8, "temp-min": 60, "temp-max": 65535, "vterm":4060, "iterm":565}
+                            ]
+                        },
+                        "wire": {
+                            "FFC":[
+                                {
+                                    "temp": {"min": 15, "max": 35, "idx": 3},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":6000},
+                                        {"mV":4330, "mA_h":6000, "mA_l":5400},
+                                        {"mV":4523, "mA_h":5400, "mA_l":2200}
+                                    ]
+                                },
+                                {
+                                    "temp": {"min": 35, "max": 48, "idx": 4},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":6000},
+                                        {"mV":4330, "mA_h":6000, "mA_l":5400},
+                                        {"mV":4523, "mA_h":5400, "mA_l":2825}
+                                    ]
+                                }
+                            ],
+                            "normal":[
+                                {
+                                    "temp": {"min": 15, "max": 35, "idx": 3},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":5400},
+                                        {"mV":4473, "mA_h":5400, "mA_l":565}
+                                    ]
+                                },
+                                {
+                                    "temp": {"min": 35, "max": 48, "idx": 4},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":5400},
+                                        {"mV":4473, "mA_h":5400, "mA_l":565}
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "cyclecount_index": 2,
+                        "jeita-term-para": {
+                            "FFC": [
+                                { "idx":0, "temp-min": 15, "temp-max": 35, "vterm":4510, "iterm":2200},
+                                { "idx":1, "temp-min": 35, "temp-max": 48, "vterm":4510, "iterm":2825}
+                            ],
+                            "normal": [
+                                { "idx": 0, "temp-min": -65535, "temp-max": -9, "vterm":4500, "iterm":565},
+                                { "idx": 1, "temp-min": -9, "temp-max": 0, "vterm":4500, "iterm":565},
+                                { "idx": 2, "temp-min": 0, "temp-max": 5, "vterm":4500, "iterm":565},
+                                { "idx": 3, "temp-min": 5, "temp-max": 10, "vterm":4500, "iterm":565},
+                                { "idx": 4, "temp-min": 10, "temp-max": 15, "vterm":4500, "iterm":565},
+                                { "idx": 5, "temp-min": 15, "temp-max": 35, "vterm":4470, "iterm":565},
+                                { "idx": 6, "temp-min": 35, "temp-max": 48, "vterm":4470, "iterm":565},
+                                { "idx": 7, "temp-min": 48, "temp-max": 60, "vterm":4060, "iterm":565},
+                                { "idx": 8, "temp-min": 60, "temp-max": 65535, "vterm":4060, "iterm":565}
+                            ]
+                        },
+                        "wire": {
+                            "FFC":[
+                                {
+                                    "temp": {"min": 15, "max": 35, "idx": 3},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":6000},
+                                        {"mV":4330, "mA_h":6000, "mA_l":5400},
+                                        {"mV":4503, "mA_h":5400, "mA_l":2200}
+                                    ]
+                                },
+                                {
+                                    "temp": {"min": 35, "max": 48, "idx": 4},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":6000},
+                                        {"mV":4330, "mA_h":6000, "mA_l":5400},
+                                        {"mV":4503, "mA_h":5400, "mA_l":2825}
+                                    ]
+                                }
+                            ],
+                            "normal":[
+                                {
+                                    "temp": {"min": 15, "max": 35, "idx": 3},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":5400},
+                                        {"mV":4463, "mA_h":5400, "mA_l":565}
+                                    ]
+                                },
+                                {
+                                    "temp": {"min": 35, "max": 48, "idx": 4},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":5400},
+                                        {"mV":4463, "mA_h":5400, "mA_l":565}
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "cyclecount_index": 3,
+                        "jeita-term-para": {
+                            "FFC": [
+                                { "idx":0, "temp-min": 15, "temp-max": 35, "vterm":4490, "iterm":2200},
+                                { "idx":1, "temp-min": 35, "temp-max": 48, "vterm":4490, "iterm":2825}
+                            ],
+                            "normal": [
+                                { "idx": 0, "temp-min": -65535, "temp-max": -9, "vterm":4500, "iterm":565},
+                                { "idx": 1, "temp-min": -9, "temp-max": 0, "vterm":4500, "iterm":565},
+                                { "idx": 2, "temp-min": 0, "temp-max": 5, "vterm":4500, "iterm":565},
+                                { "idx": 3, "temp-min": 5, "temp-max": 10, "vterm":4500, "iterm":565},
+                                { "idx": 4, "temp-min": 10, "temp-max": 15, "vterm":4500, "iterm":565},
+                                { "idx": 5, "temp-min": 15, "temp-max": 35, "vterm":4460, "iterm":565},
+                                { "idx": 6, "temp-min": 35, "temp-max": 48, "vterm":4460, "iterm":565},
+                                { "idx": 7, "temp-min": 48, "temp-max": 60, "vterm":4060, "iterm":565},
+                                { "idx": 8, "temp-min": 60, "temp-max": 65535, "vterm":4060, "iterm":565}
+                            ]
+                        },
+                        "wire": {
+                            "FFC":[
+                                {
+                                    "temp": {"min": 15, "max": 35, "idx": 3},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":6000},
+                                        {"mV":4330, "mA_h":6000, "mA_l":5400},
+                                        {"mV":4483, "mA_h":5400, "mA_l":2200}
+                                    ]
+                                },
+                                {
+                                    "temp": {"min": 35, "max": 48, "idx": 4},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":6000},
+                                        {"mV":4330, "mA_h":6000, "mA_l":5400},
+                                        {"mV":4483, "mA_h":5400, "mA_l":2825}
+                                    ]
+                                }
+                            ],
+                            "normal":[
+                                {
+                                    "temp": {"min": 15, "max": 35, "idx": 3},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":5400},
+                                        {"mV":4453, "mA_h":5400, "mA_l":565}
+                                    ]
+                                },
+                                {
+                                    "temp": {"min": 35, "max": 48, "idx": 4},
+                                    "step": [
+                                        {"mV":4130, "mA_h":7900, "mA_l":5400},
+                                        {"mV":4453, "mA_h":5400, "mA_l":565}
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "cyclecount_index": 4,
+                        "jeita-term-para": {
+                            "FFC": [
+                                { "idx":0, "temp-min": 15, "temp-max": 35, "vterm":4480, "iterm":2200},
+                                { "idx":1, "temp-min": 35, "temp-max": 48, "vterm":4480, "iterm":2825}
+                            ],
+                            "normal": [
+                                { "idx": 0, "temp-min": -65535, "temp-max": -9, "vterm":4500, "iterm":565},
+                                { "idx": 1, "temp-min": -9, "temp-max": 0, "vterm":4500, "iterm":565},
+                                { "idx": 2, "temp-min": 0, "temp-max": 5, "vterm":4500, "iterm":565},
+                                { "idx": 3, "temp-min": 5, "temp-max": 10, "vterm":4500, "iterm":565},
+                                { "idx": 4, "temp-min": 10, "temp-max": 15, "vterm":4500, "iterm":565},
+                                { "idx": 5, "temp-min": 15, "temp-max": 35, "vterm":4450, "iterm":565},
+                                { "idx": 6, "temp-min": 35, "temp-max": 48, "vterm":4450, "iterm":565},
+                                { "idx": 7, "temp-min": 48, "temp-max": 60, "vterm":4060, "iterm":565},
+                                { "idx": 8, "temp-min": 60, "temp-max": 65535, "vterm":4060, "iterm":565}
+                            ]
+                        },
+                        "wire": {
+                            "FFC":[
+                                {
+                                    "temp": {"min": 15, "max": 35, "idx": 3},
+                                    "step": [
+                                        {"mV":4120, "mA_h":6300, "mA_l":4800},
+                                        {"mV":4320, "mA_h":4800, "mA_l":4320},
+                                        {"mV":4473, "mA_h":4320, "mA_l":2200}
+                                    ]
+                                },
+                                {
+                                    "temp": {"min": 35, "max": 48, "idx": 4},
+                                    "step": [
+                                        {"mV":4120, "mA_h":6300, "mA_l":4800},
+                                        {"mV":4320, "mA_h":4800, "mA_l":4320},
+                                        {"mV":4473, "mA_h":4320, "mA_l":2825}
+                                    ]
+                                }
+                            ],
+                            "normal":[
+                                {
+                                    "temp": {"min": 15, "max": 35, "idx": 3},
+                                    "step": [
+                                        {"mV":4120, "mA_h":6300, "mA_l":4320},
+                                        {"mV":4443, "mA_h":4320, "mA_l":565}
+                                    ]
+                                },
+                                {
+                                    "temp": {"min": 35, "max": 48, "idx": 4},
+                                    "step": [
+                                        {"mV":4120, "mA_h":6300, "mA_l":4320},
+                                        {"mV":4443, "mA_h":4320, "mA_l":565}
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,177 @@
+#playback_spk
+#playback_spk_hp
+#enable_spk
+enable
+SpkrLeft T Sipa Audio Scene:Playback
+SpkrLeft B Sipa Audio Scene:Playback
+SpkrRight T Sipa Audio Scene:Playback
+SpkrRight B Sipa Audio Scene:Playback
+SpkrLeft T Sipa Mute:0
+SpkrLeft B Sipa Mute:0
+SpkrRight T Sipa Mute:0
+SpkrRight B Sipa Mute:0
+FSM_Scene:0
+FSM_Volume:255
+FSM_Stop:0
+
+#disable_spk
+disable
+SpkrLeft T Sipa Mute:1
+SpkrLeft B Sipa Mute:1
+SpkrRight T Sipa Mute:1
+SpkrRight B Sipa Mute:1
+FSM_Stop:1
+FSM_Volume:255
+FSM_Scene:0
+
+#playback_tl-spk
+#playback_tl-spk_hp
+#enable_tl-spk
+enable
+SpkrLeft T Sipa Audio Scene:Playback
+SpkrLeft T Sipa Mute:0
+FSM_Scene:7
+FSM_Volume:241
+FSM_Stop:0
+
+#disable_tl-spk
+disable
+SpkrLeft T Sipa Mute:1
+FSM_Stop:1
+FSM_Volume:255
+FSM_Scene:0
+
+#playback_tr-spk
+#playback_tr-spk_hp
+#enable_tr-spk
+enable
+SpkrRight T Sipa Audio Scene:Playback
+SpkrRight T Sipa Mute:0
+FSM_Scene:9
+FSM_Volume:241
+FSM_Stop:0
+
+#disable_tr-spk
+disable
+SpkrRight T Sipa Mute:1
+FSM_Stop:1
+FSM_Volume:255
+FSM_Scene:0
+
+#playback_bl-spk
+#playback_bl-spk_hp
+#enable_bl-spk
+enable
+SpkrLeft B Sipa Audio Scene:Playback
+SpkrLeft B Sipa Mute:0
+FSM_Scene:11
+FSM_Volume:241
+FSM_Stop:0
+
+#disable_bl-spk
+disable
+SpkrLeft B Sipa Mute:1
+FSM_Stop:1
+FSM_Volume:255
+FSM_Scene:0
+
+#playback_br-spk
+#playback_br-spk_hp
+#enable_br-spk
+enable
+SpkrRight B Sipa Audio Scene:Playback
+SpkrRight B Sipa Mute:0
+FSM_Scene:13
+FSM_Volume:241
+FSM_Stop:0
+
+#disable_br-spk
+disable
+SpkrRight B Sipa Mute:1
+FSM_Stop:1
+FSM_Volume:255
+FSM_Scene:0
+
+#capture_top-mic
+#enable_top-mic
+enable
+TX_DEC2 Volume:84
+TX_AIF1_CAP Mixer DEC2:1
+TX DMIC MUX2:DMIC1
+
+#disable_top-mic
+disable
+TX_DEC2 Volume:90
+TX_AIF1_CAP Mixer DEC2:0
+TX DMIC MUX2:ZERO
+
+#capture_back-mic
+#enable_back-mic
+enable
+TX_DEC2 Volume:84
+TX_AIF1_CAP Mixer DEC2:1
+TX DMIC MUX2:DMIC0
+
+#disable_back-mic
+disable
+TX_DEC2 Volume:90
+TX_AIF1_CAP Mixer DEC2:0
+TX DMIC MUX2:ZERO
+
+#capture_sidetop-mic
+#enable_sidetop-mic
+enable
+TX_DEC2 Volume:84
+TX_AIF1_CAP Mixer DEC2:1
+TX DMIC MUX2:DMIC4
+
+#disable_sidetop-mic
+disable
+TX_DEC2 Volume:90
+TX_AIF1_CAP Mixer DEC2:0
+TX DMIC MUX2:ZERO
+
+#capture_sidebottom-mic
+#enable_sidebottom-mic
+enable
+TX_DEC2 Volume:84
+TX_AIF1_CAP Mixer DEC2:1
+TX DMIC MUX2:DMIC2
+
+#disable_sidbottom-mic
+disable
+TX_DEC2 Volume:90
+TX_AIF1_CAP Mixer DEC2:0
+TX DMIC MUX2:ZERO
+
+#teardown_loopback
+enable
+TX_AIF1_CAP Mixer DEC0:0
+TX_AIF1_CAP Mixer DEC1:0
+TX_AIF1_CAP Mixer DEC2:0
+TX_AIF1_CAP Mixer DEC3:0
+TX_AIF1_CAP Mixer DEC5:0
+TX_AIF2_CAP Mixer DEC0:0
+TX_AIF2_CAP Mixer DEC1:0
+TX_AIF2_CAP Mixer DEC2:0
+TX_AIF2_CAP Mixer DEC3:0
+TX DMIC MUX0:ZERO
+TX DMIC MUX1:ZERO
+TX DMIC MUX2:ZERO
+TX DMIC MUX3:ZERO
+TX DMIC MUX4:ZERO
+TX DEC0 MUX:MSM_DMIC
+TX DEC1 MUX:MSM_DMIC
+TX DEC2 MUX:MSM_DMIC
+TX DEC3 MUX:MSM_DMIC
+TX DEC4 MUX:MSM_DMIC
+TX DEC5 MUX:MSM_DMIC
+TX_DEC2 Volume:90
+SpkrLeft T Sipa Mute:1
+SpkrLeft B Sipa Mute:1
+SpkrRight T Sipa Mute:1
+SpkrRight B Sipa Mute:1
+FSM_Stop:1
+FSM_Volume:255
+FSM_Scene:0
+disable
