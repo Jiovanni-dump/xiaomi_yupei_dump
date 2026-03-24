@@ -1,0 +1,12 @@
+ro.product.mod_device=yupei_in_global
+ro.mi.os.custfeatureresolve=true
+ro.miui.build.region=in
+setupwizard.feature.enable_quick_start_flow=true
+ro.appsflyer.preinstall.path=/data/miui/pai/pre_install.appsflyer
+ro.miui.pai.preinstall.path=/data/miui/pai/
+ro.miui.customized_clientid=2
+setupwizard.feature.enable_quick_enhanced_biometrics_flow=true
+ro.mi.os.version.publish=true
+ro.mi.os.version.code=3
+ro.mi.os.version.name=OS3.0
+ro.mi.os.version.incremental=OS3.0.2.0.WPZINXM

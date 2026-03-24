@@ -1,0 +1,14 @@
+# missi-user 16 BP2A.250605.031.A3 OS3.0.2.0.WPZINXM release-keys
+- manufacturer: xiaomi
+- platform: sun
+- codename: yupei
+- flavor: missi-user
+- release: 16
+- id: BP2A.250605.031.A3
+- incremental: OS3.0.2.0.WPZINXM
+- tags: release-keys
+- fingerprint: Xiaomi/yupei_global/yupei:15/AQ3A.250226.002/OS3.0.2.0.WPZINXM:user/release-keys
+- is_ab: true
+- brand: Xiaomi
+- branch: missi-user-16-BP2A.250605.031.A3-OS3.0.2.0.WPZINXM-release-keys
+- repo: xiaomi_yupei_dump
